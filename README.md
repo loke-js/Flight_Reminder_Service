@@ -1,4 +1,4 @@
-# Welcome to FLights Service
+# Welcome to Reminder Service
 
  ## Project Setup
  - clone the project on your local
