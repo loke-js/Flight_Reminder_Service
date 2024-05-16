@@ -12,7 +12,7 @@
   "development": {
     "username": <YOUR_DB_LOGIN_NAME>,
     "password":<YOUR_DB_PASSWORD>,
-    "database": "Flights_Search_DB_DEV",
+    "database": "Reminder_DB_DEV",
     "host": "127.0.0.1",
     "dialect": "mysql" 
   }
@@ -23,11 +23,20 @@
        
 ## DB Design
   - notificationTicket Table
-  - A notification belong to a RecepientEmail 
+  - A notification belong to a RecepientEmail which is to be sent after regular intervals is stored in this table.
 
 ## Tables
 ### notificationtickets
-  
-
 npx sequelize model:generate --name notificationtickets --attributes
 subject:String,content:String,recepientEmail:String,status:Enum,notificationTime:String,createdAt:DateTime,updatedAt:DateTime 
+
+## Cron jobs Setup
+
+    - reference: '*/2 * * * *' => To repeate task every two minutes.
+ ```
+
+    cron.schedule('*/2 * * * *', async () => {
+       console.log("repetitive task");
+    }); 
+
+ ```
